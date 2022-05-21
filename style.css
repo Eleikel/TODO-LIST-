@@ -307,6 +307,7 @@ footer .footer{
     bottom: 0 !important;
     left: 0;
     background-color: rgb(0, 0, 0);
+    padding: 5px;
 }
 
 
