@@ -1,0 +1,455 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+
+    --primary: #EA40A4;
+    --trabajo: var(--primary);
+    --personal: #1bcffc;
+    --grupal: #84cc16;
+    --light: #FFFFFF;
+
+    --fondo: #344fa1;
+    --color-tareas: #031956;
+
+    --shadow: 0 3px 4px rgba(219, 219, 219, 0.25);
+
+    --trabajo-glow: 0px 0px 4px rgba(200, 118, 255, 0.75);
+    --personal-glow: 0px 0px 4px rgba(60, 255, 255, 0.75);
+    --grupal-glow: 0px 0px 4px rgba(115, 255, 60, 0.75);
+
+}
+
+
+input:not([type="radio"]):not([type="checkbox"]):not([type="submit"]) {
+    appearance: none;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: initial;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: var(--fondo);
+    color: #eee;
+    width: 100%;
+
+}
+
+/* */
+.aplicacion {
+    width: 95%;
+    margin-left: 10px;
+}
+
+.crear-todo {
+    width: 100%;
+}
+
+form #contenido {
+    background-color: var(--color-tareas) !important;
+    color: var(--light);
+    font-size: 25px;
+
+}
+
+form #contenido::placeholder {
+    color: var(--primary);
+    font-size: 25px;
+    margin: 20px;
+}
+
+
+
+
+.crear-todo input[type="text"] {
+    display: block;
+    width: 100%;
+    padding: 15px 20px;
+    color: var(--dark);
+    background-color: #FFF !important;
+    box-shadow: var(--shadow);
+    border-radius: 10px;
+}
+
+.crear-todo input[type="submit"] {
+    display: block;
+    width: 100%;
+    font-size: 25px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 1rem 1.5rem;
+    color: #FFF;
+    background-color: var(--primary);
+    border-radius: 0.5rem;
+    box-shadow: var(--personal-glow);
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.crear-todo h4:nth-child(1) {
+    padding-top: 10px;
+    margin-bottom: 8px;
+}
+
+.crear-todo h4 {
+    color: var(--grey);
+    font-size: 22px;
+    padding-top: 45px;
+    margin-bottom: 10px;
+    font-weight: 800;
+}
+
+.crear-todo h3 {
+    color: var(--light);
+    font-size: 27px;
+    padding-top: 45px;
+    margin-bottom: 10px;
+    font-weight: 100;
+    letter-spacing: 2px;
+}
+
+
+.crear-todo .categorias label div {
+    color: var(--light) !important;
+    margin-top: 20px;
+}
+
+.crear-todo .categorias {
+    display: flex;
+
+}
+
+
+.crear-todo .categorias label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    background-color: var(--color-tareas);
+    border-radius: 5px;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+}
+
+.crear-todo .categorias label:nth-child(2),
+label:nth-child(3) {
+    margin-left: 15px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    display: none;
+}
+
+.circulo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 50px;
+    border: 2px solid var(--trabajo);
+    box-shadow: var(--trabajo-glow);
+}
+
+.circulo.personal {
+    border-color: var(--personal);
+    box-shadow: var(--personal-glow);
+}
+
+.circulo.grupal {
+    border-color: var(--grupal);
+    box-shadow: var(--grupal-glow);
+}
+
+.circulo::after {
+    content: "";
+    opacity: 0;
+    width: 0px;
+    height: 0px;
+    background-color: var(--trabajo);
+    box-shadow: var(--trabajo-glow);
+    border-radius: 50%;
+    transition: 0.2s ease-in-out;
+}
+
+.circulo.personal::after {
+    background-color: var(--personal);
+    box-shadow: var(--personal-glow);
+}
+
+.circulo.grupal::after {
+    background-color: var(--grupal);
+    box-shadow: var(--grupal-glow);
+}
+
+
+input:checked~.circulo::after {
+    width: 10px;
+    height: 10px;
+    opacity: 1;
+}
+
+.crear-todo .categorias label:hover {
+    opacity: 0.75;
+}
+
+
+.crear-todo .categorias label div {
+    font-size: 22px;
+    color: var(--dark);
+}
+
+
+.crear-todo input[type="submit"]:hover {
+    opacity: 0.80;
+    transition: 0.2s ease-in-out;
+
+}
+
+.lista {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.todo-list .todo-item {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    background-color: var(--color-tareas);
+    padding: 23px;
+    border-radius: 7px;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+}
+
+.todo-list h3 {
+    color: var(--light);
+    font-size: 27px;
+    padding-top: 45px;
+    margin-bottom: 10px;
+    font-weight: 100;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+
+.todo-item {
+    width: 100%;
+    display: flex;
+}
+
+.todo-item label {
+    display: block;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.todo-item .todo-contenido input {
+    color: var(--light);
+    font-size: 20px;
+}
+
+
+.todo-item .accion {
+    width: 100%;
+    display: flex;
+    align-self: center;
+}
+
+.todo-item .accion button {
+    display: block;
+    justify-content: flex-end;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    color: #FFF;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.todo-item .accion button:hover {
+    opacity: 0.50;
+}
+
+.todo-item .accion .editar {
+    margin-right: 30px;
+    padding: 7px 25px 7px 25px;
+    background-color: var(--trabajo);
+
+}
+
+.todo-item .accion .eliminar {
+    padding: 7px 25px 7px 25px;
+    background-color: var(--grupal);
+
+}
+
+
+.todo-item.realizada .todo-contenido input {
+    text-decoration: line-through;
+    color: var(--grey);
+
+}
+
+footer .footer{
+    width: 100%;
+    position: fixed;
+    bottom: 0 !important;
+    left: 0;
+    background-color: rgb(0, 0, 0);
+}
+
+
+
+/*! Responsive */
+
+
+
+@media (max-width: 1800px) {
+
+    .todo-item .accion {
+        margin-left: 60%;
+    }
+}
+
+@media (max-width: 1350px) {
+
+    .todo-item .accion {
+        margin-left: 45%;
+    }
+}
+
+
+@media (max-width: 920px) {
+
+    .todo-item .accion {
+        margin-left: 20%;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .todo-item .accion {
+        margin-left: 170px;
+    }
+
+    .todo-item .accion .editar {
+        font-size: 13px;
+        margin-right: 10px;
+        padding: 8px 12px 8px 12px;
+        background-color: var(--trabajo);
+
+    }
+
+    .todo-item .accion .eliminar {
+        font-size: 13px;
+        padding: 2px 8px 2px 8px;
+        background-color: var(--grupal);
+
+    }
+
+    .todo-list .todo-item {
+        padding: 12px;
+    }
+}
+
+
+
+@media (max-width: 653px) {
+
+    .todo-item .accion {
+        margin-left: 70px;
+    }
+}
+
+
+
+@media (max-width: 484px) {
+    .crear-todo {
+        width: 100%;
+    }
+
+    .crear-todo .categorias label {
+        padding: 15px;
+
+    }
+
+    .crear-todo .categorias label div {
+        font-size: 15px;
+        color: var(--dark);
+    }
+
+    .crear-todo input[type="submit"] {
+        width: 80%;
+        font-size: 17px;
+        font-weight: 500;
+        margin-left: 20px;
+
+    }
+
+    .todo-item .accion {
+        margin-left: 30px;
+    }
+
+    .todo-item .accion .editar {
+        font-size: 13px;
+        margin-right: 10px;
+        padding: 2px 8px 2px 8px;
+        background-color: var(--trabajo);
+    }
+
+    .todo-item .accion .eliminar {
+        font-size: 13px;
+        padding: 2px 8px 2px 8px;
+        background-color: var(--grupal);
+    }
+
+    .todo-item .todo-contenido input {
+        color: var(--light);
+        font-size: 14px;
+    }
+
+    .todo-list h3 {
+        color: var(--light);
+        font-size: 27px;
+        padding-top: 20px;
+        margin-bottom: 10px;
+        font-weight: 100;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+}
+
+
+
+@media (max-width: 390px) {
+
+    .todo-item .accion {
+        margin-left: 5px;
+    }
+
+
+    .todo-item .accion .editar {
+        font-size: 11px;
+        margin-right: 10px;
+        padding: 2px 8px 2px 8px;
+        background-color: var(--trabajo);
+    }
+
+    .todo-item .accion .eliminar {
+        font-size: 11px;
+        padding: 2px 8px 2px 8px;
+        background-color: var(--grupal);
+    }
+}
